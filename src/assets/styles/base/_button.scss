@@ -1,0 +1,50 @@
+.button {
+  border: none;
+  background: $primary;
+  color: $white;
+  padding: 8px 20px;
+  text-transform: uppercase;
+  font-size: 14px;
+  cursor: pointer;
+
+  @include breakpoint(tablet) {
+    font-size: 18px;
+    padding: 10px 40px;
+  }
+
+  &:hover{
+    color: $white;
+  }
+}
+
+.button-inverted {
+  border: 2px solid $primary;
+  background: transparent;
+  color: $white;
+  padding: 8px 20px;
+  text-transform: uppercase;
+  font-size: 14px;
+  cursor: pointer;
+
+  @include breakpoint(tablet) {
+    font-size: 18px;
+    padding: 10px 40px;
+  }
+
+  &:hover{
+    color: $white;
+    background: $primary;
+  }
+}
+
+.button-close{
+  border: none;
+  background: transparent;
+  color: $greyDark;
+  font-size: 25px;
+  cursor: pointer;
+
+  &:hover{
+    color: $black;
+  }
+}

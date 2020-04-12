@@ -1,0 +1,13 @@
+.service-wrap {
+  text-align: center;
+
+  .content {
+    .h3 {
+      margin: 10px 0;
+
+      @include breakpoint(tablet) {
+        margin: 15px 0;
+      }
+    }
+  }
+}

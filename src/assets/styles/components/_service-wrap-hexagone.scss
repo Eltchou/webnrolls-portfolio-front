@@ -1,0 +1,52 @@
+.hex-wrap {
+  display: inline-block;
+  height: 80px;
+  width: 80px;
+  position: relative;
+  text-align: center;
+
+  @include breakpoint(tablet) {
+    height: 120px;
+    width: 120px;
+  }
+}
+
+.hexagon {
+  background-color: $primary;
+  display: inline-block;
+  height: 100%;
+  width: calc(100% * 0.57735);
+  color: $white;
+  
+  .svg-inline--fa{
+    @include block-center-vh();
+    z-index: 1;
+    font-size: 30px;
+
+    @include breakpoint(tablet) {
+      font-size: 50px;
+    }
+  }
+}
+
+.hexagon:before {
+  background-color: inherit;
+  content: "";
+  height: inherit;
+  position: absolute;
+  right: calc((100% / 2) - ((100% * 0.57735) / 2));
+  top: 0;
+  transform: rotateZ(60deg);
+  width: inherit;
+}
+
+.hexagon:after {
+  background-color: inherit;
+  content: "";
+  height: inherit;
+  position: absolute;
+  right: calc((100% / 2) - ((100% * 0.57735) / 2));
+  top: 0;
+  transform: rotateZ(-60deg);
+  width: inherit;
+}

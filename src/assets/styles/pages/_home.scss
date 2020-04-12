@@ -1,0 +1,48 @@
+#home {
+  background: black;
+  overflow: hidden;
+
+  .img-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    .bg-home {
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .content {
+    text-align: center;
+    width: 80%;
+    @include block-center-h();
+    margin-top: 50px;
+
+    @include breakpoint(phablet) {
+      width: 60%;
+    }
+
+    @include breakpoint(tablet) {
+      width: 70%;
+      max-width: 1000px;
+      margin-top: 0;
+      @include block-center-vh();
+    }
+
+    .logo {
+      width: 100%;
+    }
+
+    .h1 {
+      font-family: Open Sans, sans-serif;
+      font-size: 22px;
+
+      span {
+        color: $primary;
+      }
+    }
+  }
+}

@@ -1,0 +1,74 @@
+// others
+
+.bg-grey {
+  background: #f9f9f9;
+}
+
+.border-bottom-grey {
+  border-bottom: 1px solid $greyDark;
+}
+
+.align-center {
+  text-align: center;
+}
+
+.align-right {
+  text-align: right;
+}
+
+.vertical-align {
+  & > * {
+    display: inline-block;
+    vertical-align: middle;
+  }
+}
+
+.padding-top-bottom {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  @include breakpoint(tablet) {
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+}
+
+.padding-top {
+  padding-top: 10px;
+  @include breakpoint(tablet) {
+    padding-top: 15px;
+  }
+}
+
+.is-mobile {
+  @include breakpoint(laptop) {
+    display: none;
+  }
+}
+
+.is-laptop {
+  display: none;
+  @include breakpoint(laptop) {
+    display: block;
+  }
+}
+
+// ellipsis
+.line-clamp {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+.separate{
+    background: $greyDark;
+    height: 2px;
+    margin-bottom: 20px;
+}
+
+.opacity0{
+  opacity: 0;
+}
+
+.opacity1{
+  opacity: 0;
+}

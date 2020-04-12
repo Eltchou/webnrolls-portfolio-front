@@ -1,0 +1,30 @@
+#about {
+  .services-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+
+    @include breakpoint(tablet) {
+      flex-wrap: nowrap;
+      // justify-content: space-evenly;
+    }
+
+    .service-wrap {
+      width: 50%;
+      margin-bottom: 20px;
+
+      @include breakpoint(tablet) {
+        width: 25%;
+      }
+    }
+  }
+
+  .wrapper {
+
+    @include breakpoint(tablet) {
+      margin-top: 40px;
+    }
+  }
+
+  .skills-wrapper {
+  }
+}

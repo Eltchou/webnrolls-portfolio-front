@@ -1,0 +1,50 @@
+#contact-form {
+  margin-top: 40px;
+
+  @include breakpoint(tablet) {
+    margin-top: 70px;
+  }
+
+  .success.message {
+    background: $primary;
+    border-radius: 0;
+    text-align: left;
+
+    .header {
+      color: $white;
+    }
+
+    p {
+      color: $white;
+    }
+  }
+
+  .error.message {
+    background: $error;
+    border-radius: 0;
+    text-align: left;
+
+    .header {
+      color: $white;
+    }
+
+    p {
+      color: $white;
+    }
+  }
+
+  .field {
+    margin-bottom: 10px;
+
+    input,
+    textarea {
+      background: $black;
+      color: $white;
+      border-radius: 0;
+    }
+  }
+
+  .submit-wrapper {
+    text-align: right;
+  }
+}

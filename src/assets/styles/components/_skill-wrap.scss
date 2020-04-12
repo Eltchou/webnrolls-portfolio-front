@@ -1,0 +1,44 @@
+.skill-wrap {
+  display: flex;
+  margin-bottom: 15px;
+
+  .skill-title {
+    background: $primary;
+    height: 30px;
+    color: $white;
+    border-top-left-radius: 0.28571429rem;
+    border-bottom-left-radius: 0.28571429rem;
+    position: relative;
+    width: 150px;
+    font-size: 12px;
+
+    @include breakpoint(tablet) {
+      font-size: 14px;
+    }
+
+    span {
+      @include block-center-vh();
+    }
+  }
+
+  .ui.progress {
+    width: 100%;
+    margin: 0;
+
+    .bar {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+      background: $primaryDark;
+      height: 30px;
+      transition: 0.8s width ease-in-out;
+
+      @include breakpoint(tablet) {
+        position: static;
+      }
+
+      > .progress {
+        color: $greyDark;
+      }
+    }
+  }
+}
