@@ -49,6 +49,5 @@
   "devDependencies": {},
   "keywords": [],
   "author": "",
-  "license": "ISC",
-  "proxy": "https://webnrolls-backend.herokuapp.com"
+  "license": "ISC"
 }

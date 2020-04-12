@@ -52,7 +52,7 @@ class ContactForm extends Component {
 
       axios({
         method: "POST",
-        url: "/send",
+        url: "https://webnrolls-backend.herokuapp.com/send",
         data: this.state,
       }).then((response) => {
         if (response.data.status === "success") {
