@@ -187,7 +187,7 @@ class Portfolio extends Component {
         ),
         highlight:
           "Forum d'entraide pour grandes marques E-commerce (ex. Darty, Pixmania)",
-        desc: "Intégration responsive",
+        desc: "Intégration HTML/CSS/JS responsive",
         url: "",
       },
       {
@@ -218,7 +218,7 @@ class Portfolio extends Component {
           )
         ),
         highlight: "Site Vitrine de ByAgency",
-        desc: "Intégration et débug de fonctionnalités",
+        desc: "Intégration HTML/CSS/JS et débug de fonctionnalités",
         url: "https://www.byagency.com/",
       }
     ];
