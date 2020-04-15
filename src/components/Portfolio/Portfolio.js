@@ -56,7 +56,7 @@ class Portfolio extends Component {
           )
         ),
         highlight: "Mon portfolio",
-        desc: "Développement en reactJs et formulaire de contact en ExpressJS",
+        desc: "Design et développement en reactJs",
         url: "",
       },
       {
@@ -71,7 +71,7 @@ class Portfolio extends Component {
           )
         ),
         highlight: "Landing page Lifting Yves Rocher",
-        desc: "Développement sur SAP Hybris",
+        desc: "Développement responsive sur SAP Hybris",
         url:
           "https://www.yves-rocher.be/lifting-vegetal",
       },
@@ -87,7 +87,7 @@ class Portfolio extends Component {
           )
         ),
         highlight: "Landing page parfum Yves Rocher",
-        desc: "Développement sur SAP Hybris",
+        desc: "Développement responsive sur SAP Hybris",
         url:
           "https://www.yves-rocher.fr/conseils-beaute-et-videos/choisir-un-parfum-femme",
       },
@@ -103,7 +103,7 @@ class Portfolio extends Component {
           )
         ),
         highlight: "Landing page fond de teint Yves Rocher",
-        desc: "Développement sur SAP Hybris",
+        desc: "Développement responsive sur SAP Hybris",
         url:
           "https://www.yves-rocher.fr/conseils-beaute-et-videos/diagnostic-fond-de-teint",
       },
@@ -119,7 +119,7 @@ class Portfolio extends Component {
           )
         ),
         highlight: "Landing page GiftFinder Yves Rocher",
-        desc: "Développement sur SAP Hybris / API Target2Sell",
+        desc: "Développement responsive sur SAP Hybris / API Target2Sell",
         url:
           "https://www.yves-rocher.ru/idei-podarkov",
       },
@@ -171,7 +171,7 @@ class Portfolio extends Component {
           )
         ),
         highlight: "Site Ecommerce Legrand avec Publicis",
-        desc: "Intégration maquettes responsives",
+        desc: "Développement responsive",
         url: "https://www.legrand.fr/",
       },
       {
@@ -187,7 +187,7 @@ class Portfolio extends Component {
         ),
         highlight:
           "Forum d'entraide pour grandes marques E-commerce (ex. Darty, Pixmania)",
-        desc: "Intégration HTML/CSS/JS responsive",
+        desc: "Développement responsive",
         url: "",
       },
       {
@@ -204,6 +204,8 @@ class Portfolio extends Component {
         highlight: "Backoffice pour les clients de Wibilong",
         desc:
           "Wibilong fourni des outils d'aide à la décision d'achat pour les grands sites de e-commerce (ex. Darty, Pixmania)",
+        desc2:
+          "Développement Html-css-js",
         url: "",
       },
       {
@@ -218,7 +220,7 @@ class Portfolio extends Component {
           )
         ),
         highlight: "Site Vitrine de ByAgency",
-        desc: "Intégration HTML/CSS/JS et débug de fonctionnalités",
+        desc: "Débug de fonctionnalités",
         url: "https://www.byagency.com/",
       }
     ];
