@@ -64,7 +64,7 @@ class ModalModalExample extends Component {
                 <div className="project-action">
                   {content.url && (
                     <a href={content.url} target="_blank" className="button">
-                      Voir le site
+                      Voir
                     </a>
                   )}
 
