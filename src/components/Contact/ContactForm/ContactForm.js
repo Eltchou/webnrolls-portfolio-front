@@ -12,7 +12,7 @@ class ContactForm extends Component {
       isName: false,
       isEmail: false,
       isMessage: false,
-      errors: "",
+      errors: false,
       success: false,
     };
   }
@@ -46,9 +46,9 @@ class ContactForm extends Component {
     event.preventDefault();
 
     if (!(this.state.isName && this.state.isMessage && this.state.isEmail)) {
-      this.setState({ errors: "Tous les champs doivent être remplis !" });
+      this.setState({ errors: true });
     } else {
-      this.setState({ errors: "" });
+      this.setState({ errors: false });
 
       axios({
         method: "POST",
@@ -85,7 +85,7 @@ class ContactForm extends Component {
         id="contact-form"
         onSubmit={this.handleSubmit.bind(this)}
         method="POST"
-        error={this.state.errors ? true : false}
+        error={this.state.errors}
         success={this.state.success}
       >
         <Message error content="Tous les champs doivent être remplis" />
