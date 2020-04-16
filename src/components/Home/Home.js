@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { CSSTransition } from "react-transition-group";
 
 // img
-import bgHome from "../../assets/img/bg-home.jpg";
+import bgHome from "../../assets/img/bg-home-1.jpg";
 import webnrollsBig from "../../assets/img/webnrolls-big.png";
 import webnrollsSmall from "../../assets/img/webnrolls-small.png";
 
