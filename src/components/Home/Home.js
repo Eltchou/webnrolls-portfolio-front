@@ -66,7 +66,9 @@ class Home extends Component {
                 animationDuration: `1000ms`,
               }}
             >
-              Bonjour, je suis <span>Adrien Vidal</span>. <br />
+              Bonjour,
+              <br className="is-mobile" /> je suis <span>Adrien Vidal</span>.{" "}
+              <br />
               Développeur front-end
             </h1>
           </CSSTransition>
