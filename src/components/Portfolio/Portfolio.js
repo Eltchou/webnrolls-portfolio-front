@@ -45,7 +45,7 @@ class Portfolio extends Component {
 
     const dataPortfolio = [
       {
-        title: "Webnrolls Portfolio",
+        title: "Webnrolls Portfolioo",
         cats: ["sites"],
         tags: ["ReactJs", "ExpressJs"],
         gallery: importAll(
