@@ -1,6 +1,6 @@
 import React from "react";
 import Nav from "./Nav/Nav";
-import Social from "./Social/Social";
+import Social from "../Shared/Social/Social";
 
 function Sidebar() {
   return (

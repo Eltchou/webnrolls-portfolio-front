@@ -1,0 +1,41 @@
+footer{
+
+  .social {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+
+    @include breakpoint(tablet) {
+      margin-bottom: 0;
+    }
+  
+    .social-item {
+      a {
+        display: block;
+        font-size: 25px;
+        cursor: pointer;
+        color: $white;
+        background: $black;
+        width: 70px;
+        height: 70px;
+        position: relative;
+        margin: 0 20px;
+        transition: 0.2s;
+  
+        &.active,
+        &:hover {
+          background: $primary;
+        }
+  
+        &:first-child {
+          padding-top: 0;
+        }
+
+        .fab{
+          @include block-center-vh();
+        }
+      }
+    }
+  }
+}

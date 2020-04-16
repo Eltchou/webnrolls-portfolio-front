@@ -18,6 +18,37 @@ body {
       width: 60px;
       top: 0;
     }
+
+    .social {
+      width: 100%;
+      text-align: center;
+      display: none;
+      position: absolute;
+      bottom: 0;
+
+      @include breakpoint(tablet) {
+        display: inline-block;
+      }
+
+      .social-item {
+        a {
+          display: block;
+          font-size: 25px;
+          padding: 10px 0;
+          cursor: pointer;
+          color: $blackLight;
+
+          &.active,
+          &:hover {
+            color: $primary;
+          }
+
+          &:first-child {
+            padding-top: 0;
+          }
+        }
+      }
+    }
   }
 
   .main {
@@ -43,17 +74,13 @@ body {
         padding-bottom: 100px;
       }
 
-      &:not(#home):not(#contact){
+      &:not(#home) {
         margin-right: -10px;
 
         @include breakpoint(tablet) {
           margin-right: 0;
         }
       }
-
-
-
-
 
       .section-inner {
         max-width: 1200px;

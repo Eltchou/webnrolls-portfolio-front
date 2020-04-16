@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { CSSTransition } from "react-transition-group";
 
 import ContactForm from "./ContactForm/ContactForm";
+import Footer from "./Footer/Footer";
 import { H2 } from "../Shared/Title/Title";
 
 class Contact extends Component {
@@ -45,6 +46,10 @@ class Contact extends Component {
             <ContactForm />
           </CSSTransition>
         </div>
+
+        <Footer />
+
+
       </section>
     );
   }
