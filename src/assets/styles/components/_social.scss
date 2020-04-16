@@ -1,9 +1,13 @@
 .social {
   width: 100%;
   text-align: center;
-  display: inline-block;
+  display: none;
   position: absolute;
   bottom: 0;
+
+  @include breakpoint(tablet) {
+    display: inline-block;
+  }
 
   .social-item {
     a {
