@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "semantic-ui-css/semantic.min.css";
+import "@fortawesome/fontawesome-free/css/all.css"
 
 import { BrowserRouter, Route } from "react-router-dom";
 

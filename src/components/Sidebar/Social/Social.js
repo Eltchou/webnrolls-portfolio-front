@@ -1,14 +1,5 @@
 import React, { Component } from "react";
 
-// react fontAwesome
-import {
-  faHome,
-  faUser,
-  faLaptopCode,
-  faEnvelope
-} from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
 class Social extends Component {
   constructor(props) {
     super(props);
@@ -20,7 +11,18 @@ class Social extends Component {
 
   render() {
     return (
-      <div>Social</div>
+      <div className="social">
+        <div className="social-item">
+          <a href="https://github.com/Webnrolls" target="_blank">
+            <i class="fab fa-github"></i>
+          </a>
+        </div>
+        <div className="social-item">
+          <a href="https://www.linkedin.com/in/adrien-vidal-308b4864/" target="_blank">
+            <i class="fab fa-linkedin"></i>
+          </a>
+        </div>
+      </div>
     );
   }
 }
