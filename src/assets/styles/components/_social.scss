@@ -1,0 +1,22 @@
+.social {
+  width: 100%;
+  text-align: center;
+  display: inline-block;
+  position: absolute;
+  bottom: 0;
+
+  .social-item {
+    a {
+      display: block;
+      font-size: 30px;
+      padding: 15px 0;
+      cursor: pointer;
+      color: $blackLight;
+
+      &.active,
+      &:hover {
+        color: $primary;
+      }
+    }
+  }
+}

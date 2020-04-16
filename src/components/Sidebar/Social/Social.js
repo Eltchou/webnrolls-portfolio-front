@@ -3,9 +3,6 @@ import React, { Component } from "react";
 // react fontAwesome
 import {
   faHome,
-  faUser,
-  faLaptopCode,
-  faEnvelope
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -20,7 +17,18 @@ class Social extends Component {
 
   render() {
     return (
-      <div>Social</div>
+      <div className="social">
+        <div className="social-item">
+          <a href="">
+            <FontAwesomeIcon icon={faHome} />
+          </a>
+        </div>
+        <div className="social-item">
+          <a href="">
+            <FontAwesomeIcon icon={faHome} />
+          </a>
+        </div>
+      </div>
     );
   }
 }
