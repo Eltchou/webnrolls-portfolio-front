@@ -6,7 +6,7 @@ import { Switch, Route } from "react-router-dom";
 
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 
-import Nav from "./Nav/Nav";
+import Sidebar from "./Sidebar/Sidebar";
 import Home from "./Home/Home";
 import About from "./About/About";
 import Portfolio from "./Portfolio/Portfolio";
@@ -52,9 +52,7 @@ class App extends Component {
 
     return (
       <div className="container">
-        <div className="sidebar">
-          <Nav />
-        </div>
+        <Sidebar />
         <TransitionGroup className="main">
           <CSSTransition key={location.key} timeout={500} classNames="page-animation">
             <Switch location={location}>
