@@ -87,12 +87,12 @@ class About extends Component {
         title: "ReactJS",
         percent: 70,
       },
-      {
+      /* {
         title: "Webpack",
         percent: 65,
-      },
+      }, */
       {
-        title: "NoSQL",
+        title: "API",
         percent: 80,
       },
       {
