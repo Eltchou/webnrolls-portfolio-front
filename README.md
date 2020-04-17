@@ -5,13 +5,14 @@ contact email with https://www.emailjs.com/
 
 ### Frontend
 
-```
 Dev
+```
 npm start
+```
 
 Build
+```
 npm run build
-
 ```
 
 Packages:
