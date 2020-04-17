@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import axios from "axios";
-import { Button, Message, Form } from "semantic-ui-react";
+import { Message, Form } from "semantic-ui-react";
+import emailjs from "emailjs-com";
 
 class ContactForm extends Component {
   constructor(props) {
@@ -50,21 +50,33 @@ class ContactForm extends Component {
     } else {
       this.setState({ errors: false });
 
-      axios({
-        method: "POST",
-        url: "https://webnrolls-backend.herokuapp.com/send",
-        data: this.state,
-      }).then((response) => {
-        if (response.data.status === "success") {
-          this.setState({ success: true });
-          setTimeout(() => {
-            this.setState({ success: false });
-          }, 5000);
-          this.resetForm();
-        } else if (response.data.status === "fail") {
-          alert("Message failed to send.");
-        }
-      });
+      const templateParams = {
+        from_name: this.state.name,
+        reply_to: this.state.email,
+        to_name: "Webnrolls",
+        message_html: this.state.message,
+      };
+
+      emailjs
+        .send(
+          "webnrolls_gmail",
+          "template_Q83JGmMR_clone",
+          templateParams,
+          "user_jw7utkz2Xs31q7pWnUN01"
+        )
+        .then(
+          (result) => {
+            console.log(result.text);
+            this.setState({ success: true });
+            setTimeout(() => {
+              this.setState({ success: false });
+            }, 5000);
+            this.resetForm();
+          },
+          (error) => {
+            console.log(error.text);
+          }
+        );
     }
   }
 
