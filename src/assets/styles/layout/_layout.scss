@@ -37,6 +37,7 @@ body {
           padding: 10px 0;
           cursor: pointer;
           color: $blackLight;
+          transition: 0.2s;
 
           &.active,
           &:hover {
