@@ -1,6 +1,7 @@
 # Webnrolls Portfolio Front
 
-Portfolio website with Reactjs/ExpressJs/Semantic-ui-react
+Portfolio website with Reactjs/Semantic-ui-react
+contact email with https://www.emailjs.com/
 
 ### Frontend
 
