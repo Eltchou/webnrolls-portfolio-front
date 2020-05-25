@@ -232,7 +232,7 @@ class Portfolio extends Component {
     return (
       <section id="portfolio">
         <div className="section-inner">
-          <H2 content={"Portfolio"} />
+          <H2 content={"Derniers projets"} />
 
           <CSSTransition in={true} appear timeout={500} classNames="fadeIn">
             <div

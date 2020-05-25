@@ -48,21 +48,21 @@ class About extends Component {
         icon: faDesktop,
         content: {
           title: "Responsive",
-          desc: "Mes pages fonctionnent sur tous les appareils",
+          desc: "Les pages s’adaptent à la taille de l’écran",
         },
       },
       {
         icon: faLightbulb,
         content: {
           title: "Intuitif",
-          desc: "Facile à utiliser, UX/UI intuitif",
+          desc: "Facile à utiliser",
         },
       },
       {
         icon: faRocket,
         content: {
           title: "Dynamique",
-          desc: "Les pages n'ont pas à être statique. J'aime leur donner vie",
+          desc: "Animation des pages",
         },
       },
     ];
