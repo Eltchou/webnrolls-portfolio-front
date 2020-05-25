@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { CSSTransition } from "react-transition-group";
+import { socialData } from "../../../API/socialData";
 
 class Social extends Component {
   constructor(props) {
@@ -15,19 +16,8 @@ class Social extends Component {
   }
 
   _getDataSocial() {
-    const social = [
-      {
-        icon: "fa-github",
-        link: "https://github.com/Webnrolls",
-      },
-      {
-        icon: "fa-linkedin",
-        link: "https://www.linkedin.com/in/adrien-vidal-308b4864/",
-      },
-    ];
-
     this.setState({
-      socialData: social,
+      socialData: socialData,
     });
   }
 
