@@ -67,6 +67,11 @@ class ModalModalExample extends Component {
                       Voir
                     </a>
                   )}
+                  {content.repo && (
+                    <a href={content.repo} target="_blank" className="button-icon">
+                      <i class="fab fa-github"></i>
+                    </a>
+                  )}
 
                   <ButtonClose onClick={this.handleClose} />
                 </div>

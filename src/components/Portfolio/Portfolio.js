@@ -54,7 +54,7 @@ class Portfolio extends Component {
                 animationDuration: `500ms`,
               }}
             >
-              <div data-filter="all">All</div>
+              <div data-filter="all">Tout</div>
               {this.state.galleryCats.map((galleryTag) => (
                 <div data-filter={"." + galleryTag}>{galleryTag}</div>
               ))}
@@ -82,6 +82,7 @@ class Portfolio extends Component {
                       desc: data.desc,
                       desc2: data.desc2,
                       url: data.url,
+                      repo: data.repo,
                     }}
                     style={{
                       transitionDelay: `${200 * index}ms`,
