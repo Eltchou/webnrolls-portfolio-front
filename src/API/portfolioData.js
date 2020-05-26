@@ -16,7 +16,7 @@ export const dataPortfolio = [
       )
     ),
     highlight: "Mon portfolio",
-    desc: "Design et développement en reactJs",
+    desc: "Site personnel",
     url: "",
     repo: "https://github.com/Webnrolls/webnrolls-portfolio-front",
   },
