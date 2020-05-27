@@ -3,21 +3,19 @@
   margin-bottom: 15px;
 
   .skill-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background: $primary;
     height: 30px;
     color: $white;
     border-top-left-radius: 0.28571429rem;
     border-bottom-left-radius: 0.28571429rem;
-    position: relative;
     width: 150px;
     font-size: 12px;
 
     @include breakpoint(tablet) {
       font-size: 14px;
-    }
-
-    span {
-      @include block-center-vh();
     }
   }
 

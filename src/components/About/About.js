@@ -98,12 +98,10 @@ class About extends Component {
                   <div className="content">
                     <h3 className="h3">Qui suis-je ?</h3>
                     <p>
-                      Je suis Développeur Front-End Freelance à Paris, France.
-                      J'ai une passion pour les effets UI, les animations et
-                      créer des expériences intuitives et dynamiques
+                      Développeur Front-End Freelance à Paris, France.
                       <br />
                       <NavLink to="/contact">
-                        <strong>Travaillons ensemble</strong> !
+                        <strong>Travaillons ensemble</strong>
                       </NavLink>
                     </p>
                   </div>

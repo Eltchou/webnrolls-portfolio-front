@@ -67,7 +67,7 @@ class Home extends Component {
               }}
             >
               Bonjour,
-              <br className="is-mobile" /> je suis <span>Adrien Vidal</span>.{" "}
+              <br className="is-mobile" /> je suis <span>Adrien Vidal</span>.
               <br />
               Développeur front-end
             </h1>

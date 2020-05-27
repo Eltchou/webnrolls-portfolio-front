@@ -51,31 +51,31 @@ export const skillsData = [
     percent: 80,
   },
   {
-    title: "ReactJS",
-    percent: 70,
+    title: "React",
+    percent: 60,
   },
   /* {
     title: "Webpack",
     percent: 65,
   }, */
   {
-    title: "API",
-    percent: 80,
+    title: "React-native",
+    percent: 50,
   },
   {
     title: "Wordpress",
-    percent: 85,
+    percent: 75,
   },
   {
-    title: "Photoshop",
+    title: "Adobe Photoshop",
     percent: 60,
   },
   {
-    title: "XD",
+    title: "Adobe XD",
     percent: 70,
   },
   {
-    title: "Illustrator",
+    title: "Adobe Illustrator",
     percent: 50,
   },
 ];
