@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
-import 'react-lazy-load-image-component/src/effects/blur.css';
+import "react-lazy-load-image-component/src/effects/blur.css";
 
 // component
 import ProjetModal from "./ProjetModal/ProjetModal";
@@ -25,8 +25,7 @@ class ProjetWrap extends Component {
   }
 
   render() {
-    const thumb = this.props.thumb;
-    const content = this.props.content;
+    const { thumb, content } = this.props;
 
     return (
       <div
@@ -35,7 +34,7 @@ class ProjetWrap extends Component {
       >
         <LazyLoadImage
           className="project-thumb"
-          alt={'thumb'}
+          alt={"thumb"}
           effect="blur"
           src={thumb}
         />

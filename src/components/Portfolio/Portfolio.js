@@ -18,12 +18,8 @@ class Portfolio extends Component {
     };
   }
 
-  componentWillMount() {
-    this.getDataPortfolio();
-  }
-
   componentDidMount() {
-    this.initMixItUp();
+    this.getDataPortfolio();
   }
 
   initMixItUp() {
@@ -38,7 +34,9 @@ class Portfolio extends Component {
   }
 
   getDataPortfolio() {
-    this.setState({ dataPortfolio, galleryCats });
+    this.setState({ dataPortfolio, galleryCats }, () => {
+      this.initMixItUp();
+    });
   }
 
   render() {
@@ -55,8 +53,10 @@ class Portfolio extends Component {
               }}
             >
               <div data-filter="all">Tout</div>
-              {this.state.galleryCats.map((galleryTag) => (
-                <div data-filter={"." + galleryTag}>{galleryTag}</div>
+              {this.state.galleryCats.map((galleryTag, i) => (
+                <div data-filter={"." + galleryTag} key={i}>
+                  {galleryTag}
+                </div>
               ))}
             </div>
           </CSSTransition>
@@ -76,7 +76,9 @@ class Portfolio extends Component {
                     thumb={data.gallery[0]}
                     content={{
                       title: data.title,
-                      tags: data.tags.map((tag) => <span>{tag}</span>),
+                      tags: data.tags.map((tag, i) => (
+                        <span key={i}>{tag}</span>
+                      )),
                       gallery: data.gallery.map((img) => img),
                       highlight: data.highlight,
                       desc: data.desc,

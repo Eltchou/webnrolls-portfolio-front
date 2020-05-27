@@ -50,7 +50,7 @@ class ModalModalExample extends Component {
                 dynamicHeight={true}
               >
                 {content.gallery.map((image, key) => (
-                  <img src={image} alt="image" key={key} />
+                  <img src={image} alt={image} key={key} />
                 ))}
               </Carousel>
               {/* project-content */}
@@ -63,13 +63,13 @@ class ModalModalExample extends Component {
 
                 <div className="project-action">
                   {content.url && (
-                    <a href={content.url} target="_blank" className="button">
+                    <a href={content.url} target="_blank" rel="noopener noreferrer" className="button">
                       Voir
                     </a>
                   )}
                   {content.repo && (
-                    <a href={content.repo} target="_blank" className="button-icon">
-                      <i class="fab fa-github"></i><span>github</span>
+                    <a href={content.repo} target="_blank" rel="noopener noreferrer" className="button-icon">
+                      <i className="fab fa-github"></i><span>github</span>
                     </a>
                   )}
 

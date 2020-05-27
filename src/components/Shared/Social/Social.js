@@ -39,8 +39,8 @@ class Social extends Component {
               animationDuration: `500ms`,
             }}
           >
-            <a href={data.link} target="_blank">
-              <i class={"fab " + data.icon}></i>
+            <a href={data.link} target="_blank" rel="noopener noreferrer">
+              <i className={"fab " + data.icon}></i>
             </a>
           </div>
         </CSSTransition>
