@@ -69,7 +69,7 @@ class ModalModalExample extends Component {
                   )}
                   {content.repo && (
                     <a href={content.repo} target="_blank" className="button-icon">
-                      <i class="fab fa-github"></i>
+                      <i class="fab fa-github"></i><span>github</span>
                     </a>
                   )}
 

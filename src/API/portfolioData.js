@@ -1,13 +1,31 @@
 // utils
 import { importAll } from "../utils/importFiles";
 
-export const galleryCats = ["react", "html"];
+export const galleryCats = ["react", "react-native", "Wordpress", "html"];
 
 export const dataPortfolio = [
   {
+    title: "Allo Movies",
+    cats: ["react-native"],
+    tags: ["react-native", "expo", "redux"],
+    gallery: importAll(
+      require.context(
+        "../assets/img/allo-movies",
+        false,
+        /\.(png|jpe?g|svg|gif)$/
+      )
+    ),
+    highlight: "Projet test d'application mobile pour gérer ses films",
+    desc: "Recherche de films, partage, ajout aux favories ...",
+    desc2:
+      "Développer avec React Native et Expo. Redux pour la gestion des films favoris. TMDB Api pour les films",
+    url: "https://expo.io/@webnrolls/allo-movies",
+    repo: "https://github.com/Webnrolls/allo-movies",
+  },
+  {
     title: "Webnrolls Portfolio",
     cats: ["react"],
-    tags: ["react"],
+    tags: ["react", "semantic-ui-react", "emailjs"],
     gallery: importAll(
       require.context(
         "../assets/img/webnrolls",
@@ -98,6 +116,19 @@ export const dataPortfolio = [
       "Démo technique, POC d'une application web qui permet d'accompagner les employés de grandes entreprises dans la gestion de leur épargne salariale",
     desc2: "Thème personnalisé en mobile first React-semantic-ui / ReactJs",
     url: "http://webnrolls.com/autre/clients/kaireos/#/my-savings",
+    repo: "",
+  },
+  {
+    title: "Meaculpa",
+    cats: ["Wordpress"],
+    tags: ["Wordpress"],
+    gallery: importAll(
+      require.context("../assets/img/meaculpa", false, /\.(png|jpe?g|svg|gif)$/)
+    ),
+    highlight: "Vitrine pour le collectif electro Meaculpa ",
+    desc:
+      "Mise en avant des prochains événements, présentation des membres et gallerie photos",
+    url: "https://www.meaculpa-officiel.com/",
     repo: "",
   },
   {
