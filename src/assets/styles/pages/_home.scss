@@ -2,7 +2,8 @@
   background: black;
   overflow: hidden;
 
-  .bg-home {
+  .bg-home-wrapper {
+    z-index: 1;
     position: absolute;
     top: 0;
     left: 0;
@@ -16,7 +17,12 @@
     }
   }
 
+  #hexagon-hover-effect{
+    z-index: 2;
+  }
+
   .content {
+    z-index: 3;
     pointer-events: none;
     text-align: center;
     width: 80%;

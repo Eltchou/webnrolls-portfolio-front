@@ -21,10 +21,7 @@ class Home extends Component {
   render() {
     return (
       <section id="home">
-
-        <HexagonHoverEffect />
-
-        {/* <div className="bg-home">
+        {/* <div className="bg-home-wrapper">
           <CSSTransition in={true} appear timeout={500} classNames="un-zoom">
             <img
               src={bgHome}
@@ -37,6 +34,8 @@ class Home extends Component {
             />
           </CSSTransition>
         </div> */}
+
+        <HexagonHoverEffect />
 
         <div className="content">
           <picture>

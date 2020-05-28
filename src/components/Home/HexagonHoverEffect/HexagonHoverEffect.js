@@ -39,14 +39,13 @@ export class HexagonBg extends Component {
   _displayHexagons() {
     let rows = [];
     for (let i = 0; i < this.state.rowsCount; i++) {
-      const rowIndex = i;
       let hexagons = [];
       for (let i = 0; i < this.state.hexagonsCount; i++) {
         hexagons.push(
           <div
-            id={`row-${rowIndex}-hex-${i}`}
             className="hexagon-home"
             key={i}
+            onClick={(e) => this._removeExagon(e)}
           />
         );
       }
@@ -58,6 +57,12 @@ export class HexagonBg extends Component {
       );
     }
     return rows;
+  }
+
+  _removeExagon(e) {
+    const element = e.currentTarget;
+
+    element.classList.add("scale-down-enter-active");
   }
 
   render() {
