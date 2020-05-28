@@ -6,6 +6,9 @@ import bgHome from "../../assets/img/bg-home-1.jpg";
 import webnrollsBig from "../../assets/img/webnrolls-big.png";
 import webnrollsSmall from "../../assets/img/webnrolls-small.png";
 
+// Component
+import HexagonHoverEffect from "./HexagonHoverEffect/HexagonHoverEffect";
+
 class Home extends Component {
   constructor(props) {
     super(props);
@@ -18,7 +21,10 @@ class Home extends Component {
   render() {
     return (
       <section id="home">
-        <div className="img-wrapper">
+
+        <HexagonHoverEffect />
+
+        {/* <div className="bg-home">
           <CSSTransition in={true} appear timeout={500} classNames="un-zoom">
             <img
               src={bgHome}
@@ -30,7 +36,7 @@ class Home extends Component {
               }}
             />
           </CSSTransition>
-        </div>
+        </div> */}
 
         <div className="content">
           <picture>

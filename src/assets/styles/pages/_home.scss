@@ -2,7 +2,7 @@
   background: black;
   overflow: hidden;
 
-  .img-wrapper {
+  .bg-home {
     position: absolute;
     top: 0;
     left: 0;
@@ -17,6 +17,7 @@
   }
 
   .content {
+    pointer-events: none;
     text-align: center;
     width: 80%;
     @include block-center-h();
