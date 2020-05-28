@@ -1,5 +1,9 @@
 export const socialData = [
   {
+    icon: "fa-codepen",
+    link: "https://codepen.io/webnrolls",
+  },
+  {
     icon: "fa-github",
     link: "https://github.com/Webnrolls",
   },

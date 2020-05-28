@@ -15,10 +15,10 @@ export const dataPortfolio = [
         /\.(png|jpe?g|svg|gif)$/
       )
     ),
-    highlight: "Projet test d'application mobile pour gérer ses films",
+    highlight: "Projet OpenClassroom d'application mobile pour gérer ses films",
     desc: "Recherche de films, partage, ajout aux favories ...",
     desc2:
-      "Développer avec React Native et Expo. Redux pour la gestion des films favoris. TMDB Api pour les films",
+      "Développer avec React Native et Expo. Avec Redux et TMDB Api",
     url: "https://expo.io/@webnrolls/allo-movies",
     repo: "https://github.com/Webnrolls/allo-movies",
   },
