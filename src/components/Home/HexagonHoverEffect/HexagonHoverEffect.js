@@ -10,32 +10,6 @@ export class HexagonBg extends Component {
     };
   }
 
-  componentDidMount() {
-    // this._displayHexagonsOld(this.state.rowsCount, this.state.hexagonsCount);
-  }
-
-  _displayHexagonsOld(rowCount, hexagonCount) {
-    let wrapper = document.getElementById("hexagon-hover-effect");
-
-    // generate rows
-    for (let index = 0; index < rowCount; index++) {
-      const rowIndex = index;
-      var row = document.createElement("div");
-      row.setAttribute("class", "row");
-
-      wrapper.append(row);
-
-      // generate hexagons
-      for (let index = 0; index < hexagonCount; index++) {
-        var hexagon = document.createElement("div");
-        hexagon.setAttribute("id", `row-${rowIndex}-hex-${index}`);
-        hexagon.setAttribute("class", "hexagon-home");
-
-        row.append(hexagon);
-      }
-    }
-  }
-
   _displayHexagons() {
     let rows = [];
     for (let i = 0; i < this.state.rowsCount; i++) {
@@ -43,10 +17,17 @@ export class HexagonBg extends Component {
       for (let i = 0; i < this.state.hexagonsCount; i++) {
         hexagons.push(
           <div
-            className="hexagon-home"
+            className="hexagon1"
             key={i}
             onClick={(e) => this._removeExagon(e)}
-          />
+          >
+            {/* <div className="hex-front">
+              <p>front</p>
+            </div>
+            <div className="hex-back">
+              <p>back</p>
+            </div> */}
+          </div>
         );
       }
 
@@ -62,7 +43,7 @@ export class HexagonBg extends Component {
   _removeExagon(e) {
     const element = e.currentTarget;
 
-    element.classList.add("scale-down-enter-active");
+    element.classList.toggle("active");
   }
 
   render() {

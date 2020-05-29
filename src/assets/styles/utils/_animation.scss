@@ -198,17 +198,17 @@
   0% {
     transform: scale(1);
     opacity: 1;
-    z-index:100;
+    z-index: 100;
   }
   40% {
     transform: scale(1.2);
     opacity: 1;
-    z-index:100;
+    z-index: 100;
   }
   100% {
     transform: scale(0);
     opacity: 0;
-    z-index:100;
+    z-index: 100;
   }
 }
 .scale-down-enter-active,

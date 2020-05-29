@@ -24,7 +24,7 @@
   }
 }
 
-.hexagon-home {
+.hexagon1 {
   position: relative;
   width: 100px;
   height: 110px;
@@ -61,5 +61,28 @@
   &:hover{
     background: #0f0;
     transition: 0s;
+  }
+
+  &.active{
+    animation: flip-vertical-right-with-zoom 1s cubic-bezier(0.455, 0.03, 0.515, 0.955) both;
+  }
+}
+
+// flip-vertical-right-with-zoom 
+@keyframes flip-vertical-right-with-zoom {
+  0% {
+    transform: scale(1) rotateY(0);
+    z-index: 100;
+  }
+  40% {
+    transform: scale(1.2) rotateY(0);
+    z-index: 100;
+  }
+  80% {
+    transform: scale(1.2) rotateY(180deg);
+    z-index: 100;
+  }
+  100% {
+    transform: scale(1) rotateY(180deg);
   }
 }
