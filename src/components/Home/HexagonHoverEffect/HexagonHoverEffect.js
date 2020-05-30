@@ -19,15 +19,8 @@ export class HexagonBg extends Component {
           <div
             className="hexagon1"
             key={i}
-            onClick={(e) => this._removeExagon(e)}
-          >
-            {/* <div className="hex-front">
-              <p>front</p>
-            </div>
-            <div className="hex-back">
-              <p>back</p>
-            </div> */}
-          </div>
+            onClick={(e) => this._activeExagon(e)}
+          />
         );
       }
 
@@ -40,7 +33,7 @@ export class HexagonBg extends Component {
     return rows;
   }
 
-  _removeExagon(e) {
+  _activeExagon(e) {
     const element = e.currentTarget;
 
     element.classList.toggle("active");

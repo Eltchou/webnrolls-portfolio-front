@@ -2,20 +2,20 @@
   position: relative;
   height: 100vh;
   overflow: hidden;
-  animation: animate 4s linear infinite;
-  
-  .row{
-    display:inline-flex;
+  animation: color-rotate 4s linear infinite;
+
+  .row {
+    display: inline-flex;
     margin-top: -30px;
     margin-left: -50px;
-    
-    &:nth-child(even){
+
+    &:nth-child(even) {
       margin-left: 1px;
     }
   }
 }
 
-@keyframes animate {
+@keyframes color-rotate {
   0% {
     filter: hue-rotate(0deg);
   }
@@ -33,56 +33,55 @@
   clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
   transition: 2s;
   cursor: pointer;
-  
-  &:before{
-    content:"";
-    position:absolute;
-    top:0;
-    left:0;
-    width:50%;
-    height:100%;
-    pointer-events:none;
-    background: rgba(255,255,255, 0.02);
+  transform-style: preserve-3d;
+  perspective: 1000px;
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    pointer-events: none;
+    background: rgba(255, 255, 255, 0.02);
     z-index: 2;
   }
-  
-  &:after{
-    content:"";
-    position:absolute;
-    top:4px;
-    bottom:4px;
-    left:4px;
-    right:4px;
+
+  &:after {
+    content: "";
+    position: absolute;
+    top: 4px;
+    bottom: 4px;
+    left: 4px;
+    right: 4px;
     background: #111;
     clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
     z-index: 1;
   }
-  
-  &:hover{
+
+  &:hover {
     background: #0f0;
     transition: 0s;
   }
 
-  &.active{
-    animation: flip-vertical-right-with-zoom 1s cubic-bezier(0.455, 0.03, 0.515, 0.955) both;
+  &.active {
+    animation: hex-animation 1s
+      cubic-bezier(0.455, 0.03, 0.515, 0.955) both;
   }
 }
 
-// flip-vertical-right-with-zoom 
-@keyframes flip-vertical-right-with-zoom {
+// hex-animation
+@keyframes hex-animation {
   0% {
-    transform: scale(1) rotateY(0);
+    transform: scale(1);
     z-index: 100;
   }
   40% {
-    transform: scale(1.2) rotateY(0);
-    z-index: 100;
-  }
-  80% {
-    transform: scale(1.2) rotateY(180deg);
+    transform: scale(1.2);
     z-index: 100;
   }
   100% {
-    transform: scale(1) rotateY(180deg);
+    transform: scale(0);
   }
 }
