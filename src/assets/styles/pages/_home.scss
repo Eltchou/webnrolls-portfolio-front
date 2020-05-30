@@ -17,12 +17,17 @@
     }
   }
 
-  #hexagon-hover-effect{
-    z-index: 2;
+  #hexagon-hover-effect {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
   }
 
   .content {
-    z-index: 3;
+    z-index: 2;
     pointer-events: none;
     text-align: center;
     width: 80%;
