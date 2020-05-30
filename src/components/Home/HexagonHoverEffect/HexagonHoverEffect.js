@@ -1,5 +1,8 @@
 import React, { Component } from "react";
 
+// utils
+import { getAnimationEndEventName } from "../../../utils/eventListener";
+
 export class HexagonBg extends Component {
   constructor(props) {
     super(props);
@@ -35,8 +38,22 @@ export class HexagonBg extends Component {
 
   _activeExagon(e) {
     const element = e.currentTarget;
+    // remove hexagon
+    element.classList.add("remove-hex");
 
-    element.classList.toggle("active");
+    // add hexagon
+    setTimeout(() => {
+      element.classList.replace("remove-hex", "add-hex");
+
+      const animationEndName = getAnimationEndEventName(element);
+      element.addEventListener(animationEndName, callback);
+
+      function callback(){
+        element.classList.remove("add-hex");
+        element.removeEventListener(animationEndName, callback);
+      }
+
+    }, 3000);
   }
 
   render() {
