@@ -29,7 +29,7 @@ export class HexagonBg extends Component {
         icon: "fab fa-github",
       },
       {
-        color: "#00BCD4", //rgba(0, 188, 212, 1)
+        color: "#00BCD4",
         icon: "fab fa-linkedin",
       },
       {
@@ -42,7 +42,7 @@ export class HexagonBg extends Component {
       },
       {
         color: "#F44336",
-        icon: "fas fa-home",
+        icon: "fab fa-js",
       },
       {
         color: "#F44336",
@@ -52,17 +52,18 @@ export class HexagonBg extends Component {
     for (let i = 0; i < this.state.rowsCount; i++) {
       let hexagons = [];
       for (let i = 0; i < this.state.hexagonsCount; i++) {
-        const index = Math.floor(Math.random() * icons.length);
-        const myColor = icons[index].color;
-        const myIcon = icons[index].icon;
-
-        // fas fa-bomb
+        const indexIcon = Math.floor(Math.random() * icons.length);
+        const myColor = icons[indexIcon].color;
+        const myIcon = icons[indexIcon].icon;
 
         hexagons.push(
           <div
             className="hexagon1"
             key={i}
-            onClick={(e) => this._activeExagon(e)}
+            onClick={(e) =>
+              this._activeExagon(e, indexIcon == 0 ? true : false)
+            }
+            // style={{ border: indexIcon == 0 ? "2px solid red" : "" }}
           >
             <div className="hex-front"></div>
             <div className="hex-back" style={{ background: myColor }}>
@@ -81,23 +82,56 @@ export class HexagonBg extends Component {
     return rows;
   }
 
-  _activeExagon(e) {
-    const element = e.currentTarget;
-    element.classList.add("active");
+  _activeExagon(e, isBomb) {
+    const { initGame, isGameOn, pageIsLoad } = this.props;
 
-    // add hexagon
-    /* setTimeout(() => {
-      element.classList.replace("remove-hex", "add-hex");
+    if (pageIsLoad) {
+      // initgame
+      !isGameOn && initGame();
 
-      const animationEndName = getAnimationEndEventName(element);
-      element.addEventListener(animationEndName, callback);
-
-      function callback(){
-        element.classList.remove("add-hex");
-        element.removeEventListener(animationEndName, callback);
+      // active hexagon
+      const element = e.currentTarget;
+      const elementClasses = element.classList;
+      for (let elemClass in elementClasses) {
+        if (elementClasses[elemClass] == "inactive") {
+          elementClasses.replace("inactive", "active");
+        } else {
+          elementClasses.add("active");
+        }
       }
 
-    }, 3000); */
+      // destroy
+      if (isBomb) {
+        console.log("destroy");
+
+        const animationEndName = getAnimationEndEventName(element);
+        element.addEventListener(animationEndName, inactiveAllElements);
+        function inactiveAllElements() {
+          const hexagonsElems = document.getElementsByClassName("hexagon1");
+          let elemCounter = 0;
+          for (let elem in hexagonsElems) {
+            const elemClasses = hexagonsElems[elem].classList;
+
+            for (let elemClass in elemClasses) {
+              if (elemClasses[elemClass] == "active") {
+                elemClasses.replace("active", "inactive");
+
+                hexagonsElems[elem].style["animation-delay"] =
+                  50 * elemCounter + "ms";
+
+                setTimeout(() => {
+                  hexagonsElems[elem].removeAttribute("style");
+                }, 1000);
+
+                elemCounter++;
+              }
+            }
+          }
+
+          element.removeEventListener(animationEndName, inactiveAllElements);
+        }
+      }
+    }
   }
 
   render() {

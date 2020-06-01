@@ -47,7 +47,11 @@
   } */
 
   &.active {
-    animation: hex-animation 1s cubic-bezier(0.455, 0.03, 0.515, 0.955) both;
+    animation: active-hexagon 1s cubic-bezier(0.455, 0.03, 0.515, 0.955) both;
+  }
+
+  &.inactive {
+    animation: inactive-hexagon 1s cubic-bezier(0.455, 0.03, 0.515, 0.955) both;
   }
 
   .hex-front,
@@ -96,7 +100,7 @@
     color: white;
     transform: rotateY(180deg);
 
-    i{
+    i {
       font-size: 25px;
     }
 
@@ -114,7 +118,7 @@
   }
 }
 
-@keyframes hex-animation {
+@keyframes active-hexagon {
   0% {
     transform: scale(1) rotateY(0);
     z-index: 100;
@@ -129,6 +133,24 @@
   }
   100% {
     transform: scale(1) rotateY(180deg);
+  }
+}
+
+@keyframes inactive-hexagon {
+  0% {
+    transform: scale(1) rotateY(180deg);
+    z-index: 100;
+  }
+  30% {
+    transform: scale(1.2) rotateY(180deg);
+    z-index: 100;
+  }
+  60% {
+    transform: scale(1.2) rotateY(0);
+    z-index: 100;
+  }
+  100% {
+    transform: scale(1) rotateY(0);
   }
 }
 
