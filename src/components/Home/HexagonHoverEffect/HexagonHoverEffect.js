@@ -15,15 +15,60 @@ export class HexagonBg extends Component {
 
   _displayHexagons() {
     let rows = [];
+    const icons = [
+      {
+        color: "red",
+        icon: "fas fa-bomb",
+      },
+      {
+        color: "#F44336",
+        icon: "fab fa-codepen",
+      },
+      {
+        color: "#E91E63",
+        icon: "fab fa-github",
+      },
+      {
+        color: "#00BCD4", //rgba(0, 188, 212, 1)
+        icon: "fab fa-linkedin",
+      },
+      {
+        color: "#9C27B0",
+        icon: "fas fa-home",
+      },
+      {
+        color: "#FF5722",
+        icon: "fas fa-user",
+      },
+      {
+        color: "#F44336",
+        icon: "fas fa-home",
+      },
+      {
+        color: "#F44336",
+        icon: "fas fa-envelope",
+      },
+    ];
     for (let i = 0; i < this.state.rowsCount; i++) {
       let hexagons = [];
       for (let i = 0; i < this.state.hexagonsCount; i++) {
+        const index = Math.floor(Math.random() * icons.length);
+        const myColor = icons[index].color;
+        const myIcon = icons[index].icon;
+
+        // fas fa-bomb
+
         hexagons.push(
           <div
             className="hexagon1"
             key={i}
             onClick={(e) => this._activeExagon(e)}
-          />
+          >
+            <div className="hex-front"></div>
+            <div className="hex-back" style={{ background: myColor }}>
+              <i className={myIcon}></i>
+            </div>
+          </div>
         );
       }
 
@@ -38,11 +83,10 @@ export class HexagonBg extends Component {
 
   _activeExagon(e) {
     const element = e.currentTarget;
-    // remove hexagon
-    element.classList.add("remove-hex");
+    element.classList.add("active");
 
     // add hexagon
-    setTimeout(() => {
+    /* setTimeout(() => {
       element.classList.replace("remove-hex", "add-hex");
 
       const animationEndName = getAnimationEndEventName(element);
@@ -53,7 +97,7 @@ export class HexagonBg extends Component {
         element.removeEventListener(animationEndName, callback);
       }
 
-    }, 3000);
+    }, 3000); */
   }
 
   render() {
