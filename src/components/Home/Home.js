@@ -10,7 +10,8 @@ import webnrollsSmall from "../../assets/img/webnrolls-small.png";
 import { addClassNameAnimationAndRemoveItById } from "../../utils/animations";
 
 // Component
-import HexagonHoverEffect from "./HexagonHoverEffect/HexagonHoverEffect";
+// import HexagonHoverEffect from "./HexagonHoverEffect/HexagonHoverEffect";
+import HexagonHoverEffect2 from "./HexagonHoverEffect/HexagonHoverEffect2";
 
 class Home extends Component {
   constructor(props) {
@@ -62,21 +63,11 @@ class Home extends Component {
   render() {
     return (
       <section id="home">
-        {/* <div className="bg-home-wrapper">
-          <CSSTransition in={true} appear timeout={500} classNames="un-zoom">
-            <img
-              src={bgHome}
-              alt="bg-home"
-              className="bg-home"
-              style={{
-                animationDelay: `100ms`,
-                animationDuration: `2000ms`,
-              }}
-            />
-          </CSSTransition>
-        </div> */}
+        <div className="bg-home-wrapper">
+          <img src={bgHome} alt="bg-home" className="bg-home" />
+        </div>
 
-        <HexagonHoverEffect
+        <HexagonHoverEffect2
           initGame={this._initGame}
           isGameOn={this.state.isGameOn}
           pageIsLoad={this.state.pageIsLoad}
