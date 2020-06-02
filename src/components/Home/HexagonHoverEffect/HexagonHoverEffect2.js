@@ -5,17 +5,47 @@ export class HexagonBg extends Component {
     super(props);
 
     this.state = {
-      rowsCount: 12,
-      hexagonsCount: 16,
+      windowWidth: 0,
+      windowHeight: 0,
+      gridHexagons: [],
     };
   }
 
+  componentDidMount() {
+    this.updateDimensions();
+    window.addEventListener("resize", this.updateDimensions);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.updateDimensions);
+  }
+
+  updateDimensions = () => {
+    this.setState(
+      { windowWidth: window.innerWidth, windowHeight: window.innerHeight },
+      () => this._displayHexagons()
+    );
+  };
+
   _displayHexagons() {
+    // get rows and hex count
+    var containerHex = document.getElementById("hexagon-hover-effect");
+    let rowsCount = 0;
+    let hexagonsCount = 0;
+    const hexHeight = 110;
+    const hexWidth = 100;
+    var w = containerHex.offsetWidth;
+    var h = containerHex.offsetHeight;
+
+    rowsCount = Math.round(this.state.windowHeight / hexHeight) + 5;
+    hexagonsCount = Math.round(this.state.windowWidth / hexWidth) + 5;
+
+    // creates rows and hex
     let rows = [];
 
-    for (let i = 0; i < this.state.rowsCount; i++) {
+    for (let i = 0; i < rowsCount; i++) {
       let hexagons = [];
-      for (let i = 0; i < this.state.hexagonsCount; i++) {
+      for (let i = 0; i < hexagonsCount; i++) {
         hexagons.push(
           <div
             className="hexagon1"
@@ -33,7 +63,10 @@ export class HexagonBg extends Component {
         </div>
       );
     }
-    return rows;
+
+    this.setState({
+      gridHexagons: rows,
+    });
   }
 
   _removeExagon(e) {
@@ -58,7 +91,7 @@ export class HexagonBg extends Component {
   }
 
   render() {
-    return <div id="hexagon-hover-effect">{this._displayHexagons()}</div>;
+    return <div id="hexagon-hover-effect">{this.state.gridHexagons}</div>;
   }
 }
 
