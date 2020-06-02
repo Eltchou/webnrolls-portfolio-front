@@ -49,6 +49,10 @@
     animation: hex-remove 1s cubic-bezier(0.455, 0.03, 0.515, 0.955) both;
   }
 
+  &.add-hex {
+    animation: hex-add 1s cubic-bezier(0.455, 0.03, 0.515, 0.955) both;
+  }
+
   .inner {
     position: absolute;
     top: 0;
@@ -105,5 +109,16 @@
   100% {
     transform: scale(0);
     opacity: 0;
+  }
+}
+
+@keyframes hex-add {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
   }
 }

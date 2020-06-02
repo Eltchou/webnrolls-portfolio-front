@@ -42,10 +42,18 @@ export class HexagonBg extends Component {
 
     if (pageIsLoad) {
       // initgame
-      !isGameOn && initGame();
+      !isGameOn && initGame(true);
 
       const elemClasses = element.classList;
       elemClasses.add("remove-hex");
+
+      /* setTimeout(function () {
+        elemClasses.replace("remove-hex", "add-hex");
+
+        setTimeout(function () {
+          elemClasses.remove("add-hex");
+        }, 1000);
+      }, 10000); */
     }
   }
 

@@ -13,7 +13,6 @@
       object-fit: cover;
       width: 100%;
       height: 100%;
-      filter: brightness(50%);
     }
   }
 
@@ -48,24 +47,26 @@
     &.hide-for-game {
       img.logo {
         opacity: 0.2;
-        transition: 0.5s;
-        transform: translateY(-100px);
+        // transition: 0.5s;
+        transform: translateY(-100px) scale(0.9);
       }
       
       h1 {
         opacity: 0.2;
-        transition: 0.5s;
-        transform: translateY(100px);
+        // transition: 0.5s;
+        transform: translateY(100px) scale(0.9);
       }
     }
 
     .logo {
       width: 100%;
+      transition: 0.5s;
     }
 
     .h1 {
       font-family: Open Sans, sans-serif;
       font-size: 22px;
+      transition: 0.5s;
 
       span {
         color: $primary;

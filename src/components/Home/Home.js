@@ -7,7 +7,10 @@ import webnrollsBig from "../../assets/img/webnrolls-big.png";
 import webnrollsSmall from "../../assets/img/webnrolls-small.png";
 
 // utils
-import { addClassNameAnimationAndRemoveItById } from "../../utils/animations";
+import {
+  addClassNameAnimationAndRemoveItById,
+  addClassNameTransitionById,
+} from "../../utils/animations";
 
 // Component
 // import HexagonHoverEffect from "./HexagonHoverEffect/HexagonHoverEffect";
@@ -28,6 +31,7 @@ class Home extends Component {
   }
 
   _animationPageLoad() {
+
     // logo
     addClassNameAnimationAndRemoveItById(
       "logo",
@@ -54,9 +58,9 @@ class Home extends Component {
     );
   }
 
-  _initGame = () => {
+  _initGame = (isGameOn) => {
     this.setState({
-      isGameOn: true,
+      isGameOn: isGameOn,
     });
   };
 
