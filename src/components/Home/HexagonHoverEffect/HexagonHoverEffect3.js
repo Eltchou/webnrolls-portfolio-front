@@ -140,16 +140,16 @@ export class HexagonBg extends Component {
             },
             {
               scale: 1.3,
-              duration: 600,
+              duration: 300,
               easing: "cubicBezier(0.455, 0.03, 0.515, 0.955)",
             },
             {
               scale: 1.3,
               duration: 300,
-              rotate: "180deg",
+              rotate: "360deg",
               easing: "cubicBezier(0.455, 0.03, 0.515, 0.955)",
             },
-            { scale: 1, duration: 500, delay: 1000, easing: "easeOutElastic" },
+            { scale: 1, duration: 500, delay: 800, easing: "easeOutElastic" },
           ],
           // delay: 50
         });
@@ -158,65 +158,54 @@ export class HexagonBg extends Component {
           {
             targets: ".hexagon1 .inner",
             keyframes: [
-              { background: "#4CAF50", duration: 50, easing: "linear" },
+              { background: "#4CAF50", duration: 20, easing: "linear" },
               {
-                background: "#fff",
-                duration: 50,
+                background: "#00CFFF",
+                duration: 20,
+                delay: 500,
+                easing: "linear",
+              },
+              {
+                background: "#FF0000",
+                duration: 20,
+                delay: 500,
+                easing: "linear",
+              },
+              {
+                background: "#FF9E00",
+                duration: 20,
+                delay: 500,
+                easing: "linear",
+              },
+              {
+                background: "#FFEF00",
+                duration: 20,
                 delay: 500,
                 easing: "linear",
               },
               {
                 background: "#111",
-                duration: 50,
+                duration: 20,
                 delay: 500,
                 easing: "linear",
               },
             ],
-            delay: anime.stagger(200, {
+            delay: anime.stagger(100, {
               grid: [that.state.hexagonsCount, that.state.rowsCount],
               from: index,
             }),
-            //}, 1650);
-          },
-          "-=700"
-        );
-
-        tl.add(
-          {
-            targets: ".hexagon1",
-            keyframes: [
-              {
-                scale: 1,
-                duration: 50,
-                easing: "cubicBezier(0.455, 0.03, 0.515, 0.955)",
-              },
-              {
-                scale: 0,
-                duration: 600,
-                easing: "cubicBezier(0.455, 0.03, 0.515, 0.955)",
-              },
-            ],
-            delay: anime.stagger(200, {
-              grid: [that.state.hexagonsCount, that.state.rowsCount],
-              from: index,
-            }),
+            begin: function (anim) {
+              hex.querySelector(".inner").removeAttribute("style");
+            },
             complete: function (anim) {
               hexagons.forEach((hex2) => {
                 // hex2.removeEventListener("click", removeAnim);
                 hex2.removeAttribute("style");
                 hex2.querySelector(".inner").removeAttribute("style");
               });
-
-              const randomIndex = Math.round(
-                Math.random() *
-                  (that.state.hexagonsCount * that.state.rowsCount)
-              );
-              console.log("randomIndex", randomIndex);
-
-              that._initHex(false, randomIndex);
             },
           },
-          "-= 1000"
+          "-=500"
         );
       }
     });

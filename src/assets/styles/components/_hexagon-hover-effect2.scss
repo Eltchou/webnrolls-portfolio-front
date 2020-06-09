@@ -75,8 +75,7 @@
       z-index: 2;
     }
 
-    .inner-bg {
-      content: "";
+    /* .inner-bg {
       position: absolute;
       top: 4px;
       bottom: 4px;
@@ -85,7 +84,7 @@
       background: #111;
       clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
       z-index: 1;
-    }
+    } */
 
     &:hover {
       background: $primary;
