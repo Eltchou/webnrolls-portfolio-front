@@ -75,6 +75,7 @@ export class HexagonBg extends Component {
     const hexagons = document.querySelectorAll(".hexagon1");
     hexagons.forEach((hex) => {
       hex.style.opacity = 0;
+      hex.style.transform = 'scale(0.5)';
     });
 
     let tl = anime.timeline();
@@ -83,6 +84,7 @@ export class HexagonBg extends Component {
       {
         targets: hexagons,
         opacity: 1,
+        scale: 1,
         easing: "easeOutExpo",
         delay: anime.stagger(100, {
           grid: [this.state.hexagonsCount, this.state.rowsCount],
