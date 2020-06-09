@@ -51,9 +51,9 @@ export class HexagonBg extends Component {
           <div
             className="hexagon1"
             key={i}
-            // onClick={(e) => this._removeExagon(e)}
           >
             <div className="inner"></div>
+            <div className="overlay"></div>
           </div>
         );
       }
@@ -114,6 +114,8 @@ export class HexagonBg extends Component {
 
         hexagons.forEach((hex, index) => {
           hex.style.pointerEvents = "none";
+          // hex.style.transform = 'scale(1.2)';
+          // hex.querySelector(".overlay").style.transform = 'scale(1)';
         });
 
         const hexInner = hex.querySelector(".inner");
@@ -121,7 +123,7 @@ export class HexagonBg extends Component {
         // fix .inner for firefox
         anime({
           targets: hexInner,
-          background: "#4CAF50",
+          background: "#0f0",
           duration: 0,
           delay: 0,
         });
@@ -158,8 +160,8 @@ export class HexagonBg extends Component {
           {
             targets: ".hexagon1 .inner",
             keyframes: [
-              // { background: "#0f0", duration: 0, easing: "linear" },
-              { background: "#4CAF50", duration: 50, easing: "linear" },
+              { background: "#0f0", duration: 50, easing: "linear" },
+              // { background: "#111", duration: 50, easing: "linear" },
             ],
             delay: anime.stagger(200, {
               grid: [that.state.hexagonsCount, that.state.rowsCount],

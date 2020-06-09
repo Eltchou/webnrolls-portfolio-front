@@ -2,7 +2,7 @@
   position: relative;
   height: 100vh;
   overflow: hidden;
-  // animation: color-rotate 4s linear infinite;
+  animation: color-rotate 4s linear infinite;
   // opacity:0;
 
   .row {
@@ -32,8 +32,7 @@
   margin: 1px;
   cursor: pointer;
 
-  &:after {
-    content: "";
+  /* .overlay {
     position: absolute;
     top: 4px;
     bottom: 4px;
@@ -43,7 +42,7 @@
     clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
     z-index: 0;
     transform: scale(1.2);
-  }
+  } */
 
   &.remove-hex {
     animation: hex-remove 1s cubic-bezier(0.455, 0.03, 0.515, 0.955) both;

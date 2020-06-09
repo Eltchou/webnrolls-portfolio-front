@@ -68,9 +68,9 @@ class Home extends Component {
   render() {
     return (
       <section id="home">
-        <div className="bg-home-wrapper">
+        {/* <div className="bg-home-wrapper">
           <img src={bgHome} alt="bg-home" className="bg-home" />
-        </div>
+        </div> */}
 
         <HexagonHoverEffect3
           /* initGame={this._initGame}
