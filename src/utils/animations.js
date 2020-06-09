@@ -40,6 +40,7 @@ export function addClassNameAnimationAndRemoveItById(
 
     function callbackListener() {
       element.classList.remove(animationName);
+      element.removeAttribute("style");
 
       // add callbacks
       if (typeof callbacks == "function") {

@@ -76,6 +76,7 @@
 .slide-in-left-enter-done,
 .slide-in-left-appear-active,
 .slide-in-left-appear-done {
+  transform: translateX(-300px);
   animation: slide-in-left 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
 
@@ -165,6 +166,9 @@
 
 .slide-in-elliptic-top-fwd-appear-active,
 .slide-in-elliptic-top-fwd-appear-done {
+  transform: translateY(-600px) rotateX(-30deg) scale(0);
+  transform-origin: 50% 100%;
+  opacity: 0;
   animation: slide-in-elliptic-top-fwd cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
 
@@ -190,6 +194,7 @@
 .un-zoom-enter-done,
 .un-zoom-appear-active,
 .un-zoom-appear-done {
+  transform: scale(1.2);
   animation: un-zoom cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
 

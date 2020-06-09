@@ -16,19 +16,21 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = { device: "mobile" };
-    this.updateDevice = this.updateDevice.bind(this);
+    this._updateDevice = this._updateDevice.bind(this);
   }
 
   componentDidMount() {
-    this.updateDevice();
-    window.addEventListener("resize", this.updateDevice);
+    this._updateDevice();
+    window.addEventListener("resize", this._updateDevice);
+
+    this._animationPageLoad();
   }
 
   componentWillUnmount() {
-    window.removeEventListener("resize", this.updateDevice);
+    window.removeEventListener("resize", this._updateDevice);
   }
 
-  updateDevice() {
+  _updateDevice() {
     const deviceWidth = window.innerWidth;
     let device = "";
 
@@ -46,6 +48,13 @@ class App extends Component {
 
     this.setState({ device: device });
   }
+
+  _animationPageLoad(){
+    console.log("_animationPageLoad");
+
+    
+  }
+
 
   render() {
     const { location } = this.props;

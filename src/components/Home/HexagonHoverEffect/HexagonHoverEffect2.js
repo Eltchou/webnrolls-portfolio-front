@@ -21,10 +21,9 @@ export class HexagonBg extends Component {
   }
 
   updateDimensions = () => {
-    this.setState(
-      { windowWidth: window.innerWidth, windowHeight: window.innerHeight },
-      () => this._displayHexagons()
-    );
+    this.state.windowWidth = window.innerWidth
+    this.state.windowHeight = window.innerHeight
+    this._displayHexagons()
   };
 
   _displayHexagons() {

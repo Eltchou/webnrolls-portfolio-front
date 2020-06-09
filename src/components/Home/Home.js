@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { CSSTransition } from "react-transition-group";
 
 // img
-import bgHome from "../../assets/img/bg-home.jpg";
+import bgHome from "../../assets/img/projet.jpg";
 import webnrollsBig from "../../assets/img/webnrolls-big.png";
 import webnrollsSmall from "../../assets/img/webnrolls-small.png";
 
@@ -13,7 +13,6 @@ import {
 } from "../../utils/animations";
 
 // Component
-// import HexagonHoverEffect from "./HexagonHoverEffect/HexagonHoverEffect";
 import HexagonHoverEffect2 from "./HexagonHoverEffect/HexagonHoverEffect2";
 
 class Home extends Component {
@@ -27,10 +26,20 @@ class Home extends Component {
   }
 
   componentDidMount() {
-    this._animationPageLoad();
+    // this._animationPageLoad();
   }
 
   _animationPageLoad() {
+
+    // bg
+    addClassNameAnimationAndRemoveItById(
+      "bg-home-wrapper",
+      "un-zoom-enter-active",
+      {
+        animationDelay: `500ms`,
+        animationDuration: `2000ms`,
+      }
+    );
 
     // logo
     addClassNameAnimationAndRemoveItById(
@@ -49,12 +58,12 @@ class Home extends Component {
       {
         animationDelay: `1000ms`,
         animationDuration: `1000ms`,
-      },
+      }/* ,
       () => {
         this.setState({
           pageIsLoad: true,
         });
-      }
+      } */
     );
   }
 
@@ -67,17 +76,17 @@ class Home extends Component {
   render() {
     return (
       <section id="home">
-        <div className="bg-home-wrapper">
+        <div id="bg-home-wrapper" className="bg-home-wrapper">
           <img src={bgHome} alt="bg-home" className="bg-home" />
         </div>
 
-        <HexagonHoverEffect2
+        {/* <HexagonHoverEffect2
           initGame={this._initGame}
           isGameOn={this.state.isGameOn}
           pageIsLoad={this.state.pageIsLoad}
-        />
+        /> */}
 
-        <div
+        {/* <div
           className={"content" + (this.state.isGameOn ? " hide-for-game" : "")}
         >
           <picture>
@@ -96,7 +105,8 @@ class Home extends Component {
             <br />
             Développeur front-end
           </h1>
-        </div>
+        </div> */}
+
       </section>
     );
   }
