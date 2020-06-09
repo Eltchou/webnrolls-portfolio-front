@@ -75,9 +75,11 @@
       z-index: 2;
     }
 
-    &:hover {
-      background: $primary;
-      transition: 0s;
+    @include breakpoint(tablet) {
+      &:hover {
+        background: $primary;
+        transition: 0s;
+      }
     }
   }
 }

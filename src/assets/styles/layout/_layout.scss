@@ -1,6 +1,10 @@
 body {
   font-family: Roboto, sans-serif;
   color: $black;
+
+  *{
+    -webkit-tap-highlight-color: transparent;
+  }
 }
 
 .container {
