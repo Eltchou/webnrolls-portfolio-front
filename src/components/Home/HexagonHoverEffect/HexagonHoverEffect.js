@@ -1,74 +1,55 @@
 import React, { Component } from "react";
-
-// utils
-import { getAnimationEndEventName } from "../../../utils/eventListener";
+import anime from "animejs/lib/anime.es.js";
 
 export class HexagonBg extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      rowsCount: 12,
-      hexagonsCount: 16,
+      windowWidth: 0,
+      windowHeight: 0,
+      hexagonsCount: 0,
+      rowsCount: 0,
+      gridHexagons: [],
     };
   }
 
+  componentDidMount() {
+    this.updateDimensions();
+    window.addEventListener("resize", this.updateDimensions);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.updateDimensions);
+  }
+
+  updateDimensions = () => {
+    this.state.windowWidth = window.innerWidth;
+    this.state.windowHeight = window.innerHeight;
+    this._displayHexagons();
+  };
+
   _displayHexagons() {
+    // get rows and hex count
+    var containerHex = document.getElementById("hexagon-hover-effect");
+    const hexHeight = 110;
+    const hexWidth = 100;
+    var w = containerHex.offsetWidth;
+    var h = containerHex.offsetHeight;
+
+    this.state.rowsCount = Math.round(this.state.windowHeight / hexHeight) + 5;
+    this.state.hexagonsCount =
+      Math.round(this.state.windowWidth / hexWidth) + 5;
+
+    // creates rows and hex
     let rows = [];
-    const icons = [
-      {
-        color: "red",
-        icon: "fas fa-bomb",
-      },
-      {
-        color: "#F44336",
-        icon: "fab fa-codepen",
-      },
-      {
-        color: "#E91E63",
-        icon: "fab fa-github",
-      },
-      {
-        color: "#00BCD4",
-        icon: "fab fa-linkedin",
-      },
-      {
-        color: "#9C27B0",
-        icon: "fas fa-home",
-      },
-      {
-        color: "#FF5722",
-        icon: "fas fa-user",
-      },
-      {
-        color: "#F44336",
-        icon: "fab fa-js",
-      },
-      {
-        color: "#F44336",
-        icon: "fas fa-envelope",
-      },
-    ];
+
     for (let i = 0; i < this.state.rowsCount; i++) {
       let hexagons = [];
       for (let i = 0; i < this.state.hexagonsCount; i++) {
-        const indexIcon = Math.floor(Math.random() * icons.length);
-        const myColor = icons[indexIcon].color;
-        const myIcon = icons[indexIcon].icon;
-
         hexagons.push(
-          <div
-            className="hexagon1"
-            key={i}
-            onClick={(e) =>
-              this._activeExagon(e, indexIcon == 0 ? true : false)
-            }
-            // style={{ border: indexIcon == 0 ? "2px solid red" : "" }}
-          >
-            <div className="hex-front"></div>
-            <div className="hex-back" style={{ background: myColor }}>
-              <i className={myIcon}></i>
-            </div>
+          <div className="hexagon1" key={i}>
+            <div className="inner"></div>
           </div>
         );
       }
@@ -79,63 +60,157 @@ export class HexagonBg extends Component {
         </div>
       );
     }
-    return rows;
+
+    this.setState(
+      {
+        gridHexagons: rows,
+      },
+      () => {
+        this._initHex(true);
+      }
+    );
   }
 
-  _activeExagon(e, isBomb) {
-    const { initGame, isGameOn, pageIsLoad } = this.props;
+  _initHex(firstTime, randomIndex) {
+    const hexagons = document.querySelectorAll(".hexagon1");
+    hexagons.forEach((hex) => {
+      hex.style.opacity = 0;
+    });
 
-    if (pageIsLoad) {
-      // initgame
-      !isGameOn && initGame();
+    let tl = anime.timeline();
 
-      // active hexagon
-      const element = e.currentTarget;
-      const elementClasses = element.classList;
-      for (let elemClass in elementClasses) {
-        if (elementClasses[elemClass] == "inactive") {
-          elementClasses.replace("inactive", "active");
-        } else {
-          elementClasses.add("active");
+    tl.add(
+      {
+        targets: hexagons,
+        opacity: 1,
+        easing: "easeOutExpo",
+        delay: anime.stagger(100, {
+          grid: [this.state.hexagonsCount, this.state.rowsCount],
+          from: randomIndex ? randomIndex : 0,
+        }),
+        complete: (anim) => {
+          this._removeHex(firstTime);
+        },
+      },
+      1500
+    );
+  }
+
+  _removeHex(firstTime) {
+    const hexagons = document.querySelectorAll(".hexagon1");
+
+    const that = this;
+
+    hexagons.forEach((hex, index) => {
+      firstTime && hex.addEventListener("click", removeAnim);
+
+      function removeAnim() {
+        hex.style.zIndex = 100;
+
+        hexagons.forEach((hex, index) => {
+          hex.style.pointerEvents = "none";
+        });
+
+        const hexInner = hex.querySelector(".inner");
+
+        if (navigator.userAgent.toLowerCase().indexOf("firefox") !== -1) {
+          console.log("firefox");
+          // fix .inner for firefox
+          anime({
+            targets: hexInner,
+            background: "#4CAF50",
+            duration: 0,
+            delay: 0,
+          });
         }
+
+        let tl = anime.timeline({
+          duration: 750,
+        });
+
+        tl.add({
+          targets: hex,
+          keyframes: [
+            {
+              scale: 1,
+              duration: 0,
+              easing: "cubicBezier(0.455, 0.03, 0.515, 0.955)",
+            },
+            {
+              scale: 1.3,
+              duration: 300,
+              easing: "cubicBezier(0.455, 0.03, 0.515, 0.955)",
+            },
+            {
+              scale: 1.3,
+              duration: 300,
+              rotate: "360deg",
+              easing: "cubicBezier(0.455, 0.03, 0.515, 0.955)",
+            },
+            { scale: 1, duration: 500, delay: 800, easing: "easeOutElastic" },
+          ],
+          // delay: 50
+        });
+
+        tl.add(
+          {
+            targets: ".hexagon1 .inner",
+            keyframes: [
+              { background: "#4CAF50", duration: 20, easing: "linear" },
+              {
+                background: "#00CFFF",
+                duration: 20,
+                delay: 500,
+                easing: "linear",
+              },
+              {
+                background: "#FF0000",
+                duration: 20,
+                delay: 500,
+                easing: "linear",
+              },
+              {
+                background: "#FF9E00",
+                duration: 20,
+                delay: 500,
+                easing: "linear",
+              },
+              {
+                background: "#FFEF00",
+                duration: 20,
+                delay: 500,
+                easing: "linear",
+              },
+              {
+                background: "#111",
+                duration: 20,
+                delay: 500,
+                easing: "linear",
+              },
+            ],
+            delay: anime.stagger(100, {
+              grid: [that.state.hexagonsCount, that.state.rowsCount],
+              from: index,
+            }),
+            begin: function (anim) {
+              hex.querySelector(".inner").removeAttribute("style");
+            },
+            complete: function (anim) {
+              hexagons.forEach((hex2) => {
+                // hex2.removeEventListener("click", removeAnim);
+                hex2.removeAttribute("style");
+                hex2.querySelector(".inner").removeAttribute("style");
+              });
+            },
+          },
+          "-=500"
+        );
       }
-
-      // destroy
-      if (isBomb) {
-        console.log("destroy");
-
-        const animationEndName = getAnimationEndEventName(element);
-        element.addEventListener(animationEndName, inactiveAllElements);
-        function inactiveAllElements() {
-          const hexagonsElems = document.getElementsByClassName("hexagon1");
-          let elemCounter = 0;
-          for (let elem in hexagonsElems) {
-            const elemClasses = hexagonsElems[elem].classList;
-
-            for (let elemClass in elemClasses) {
-              if (elemClasses[elemClass] == "active") {
-                elemClasses.replace("active", "inactive");
-
-                hexagonsElems[elem].style["animation-delay"] =
-                  50 * elemCounter + "ms";
-
-                setTimeout(() => {
-                  hexagonsElems[elem].removeAttribute("style");
-                }, 1000);
-
-                elemCounter++;
-              }
-            }
-          }
-
-          element.removeEventListener(animationEndName, inactiveAllElements);
-        }
-      }
-    }
+    });
   }
 
   render() {
-    return <div id="hexagon-hover-effect">{this._displayHexagons()}</div>;
+    return <div id="hexagon-hover-effect">{this.state.gridHexagons}</div>;
   }
 }
 

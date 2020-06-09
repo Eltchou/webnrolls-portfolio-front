@@ -2,7 +2,8 @@
   position: relative;
   height: 100vh;
   overflow: hidden;
-  //animation: color-rotate 4s linear infinite;
+  // animation: color-rotate 4s linear infinite;
+  // opacity:0;
 
   .row {
     display: inline-flex;
@@ -28,47 +29,39 @@
   position: relative;
   width: 100px;
   height: 110px;
-  margin: 2px;
+  margin: 1px;
   cursor: pointer;
-  transform-style: preserve-3d;
 
-  &:hover .hex-front {
-    background: $white;
-    // background: #0f0;
-    transition: 0s;
-  }
+  /* .overlay {
+    position: absolute;
+    top: 4px;
+    bottom: 4px;
+    left: 4px;
+    right: 4px;
+    background: black;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    z-index: 0;
+    transform: scale(1.2);
+  } */
 
-  /* &.remove-hex {
+  &.remove-hex {
     animation: hex-remove 1s cubic-bezier(0.455, 0.03, 0.515, 0.955) both;
   }
 
   &.add-hex {
     animation: hex-add 1s cubic-bezier(0.455, 0.03, 0.515, 0.955) both;
-  } */
-
-  &.active {
-    animation: active-hexagon 1s cubic-bezier(0.455, 0.03, 0.515, 0.955) both;
   }
 
-  &.inactive {
-    animation: inactive-hexagon 1s cubic-bezier(0.455, 0.03, 0.515, 0.955) both;
-  }
-
-  .hex-front,
-  .hex-back {
+  .inner {
     position: absolute;
-    width: 100%;
-    height: 100%;
-    backface-visibility: hidden;
-    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-    display: grid;
-    place-items: center;
-  }
-
-  .hex-front {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     background: #111;
-    color: black;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
     transition: 2s;
+    z-index: 1;
 
     &:before {
       content: "";
@@ -78,103 +71,41 @@
       width: 50%;
       height: 100%;
       pointer-events: none;
-      background: rgba(255, 255, 255, 0.02);
+      background: rgba(255, 255, 255, 0.05);
       z-index: 2;
     }
 
-    &:after {
-      content: "";
-      position: absolute;
-      top: 4px;
-      bottom: 4px;
-      left: 4px;
-      right: 4px;
-      background: #111;
-      clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-      z-index: 1;
-    }
-  }
-
-  .hex-back {
-    background-color: #2980b9;
-    color: white;
-    transform: rotateY(180deg);
-
-    i {
-      font-size: 25px;
-    }
-
-    &:before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 50%;
-      height: 100%;
-      pointer-events: none;
-      background: rgba(255, 255, 255, 0.1);
-      z-index: 2;
+    &:hover {
+      background: $primary;
+      transition: 0s;
     }
   }
 }
 
-@keyframes active-hexagon {
-  0% {
-    transform: scale(1) rotateY(0);
-    z-index: 100;
-  }
-  30% {
-    transform: scale(1.2) rotateY(0);
-    z-index: 100;
-  }
-  60% {
-    transform: scale(1.2) rotateY(180deg);
-    z-index: 100;
-  }
-  100% {
-    transform: scale(1) rotateY(180deg);
-  }
-}
-
-@keyframes inactive-hexagon {
-  0% {
-    transform: scale(1) rotateY(180deg);
-    z-index: 100;
-  }
-  30% {
-    transform: scale(1.2) rotateY(180deg);
-    z-index: 100;
-  }
-  60% {
-    transform: scale(1.2) rotateY(0);
-    z-index: 100;
-  }
-  100% {
-    transform: scale(1) rotateY(0);
-  }
-}
-
-// hex-remove
-/* @keyframes hex-remove {
+@keyframes hex-remove {
   0% {
     transform: scale(1);
+    opacity: 1;
     z-index: 100;
   }
-  40% {
-    transform: scale(1.2);
+  30% {
+    transform: scale(1.1);
     z-index: 100;
+    opacity: 1;
   }
   100% {
     transform: scale(0);
+    opacity: 0;
   }
 }
 
 @keyframes hex-add {
   0% {
     transform: scale(0);
+    opacity: 0;
   }
   100% {
     transform: scale(1);
-    z-index: 100;
+    opacity: 1;
   }
-} */
+}
