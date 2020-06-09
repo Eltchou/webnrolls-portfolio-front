@@ -26,8 +26,6 @@ class Home extends Component {
   _animationPageLoad() {
     const logo = document.querySelector(".logo");
     const logoTitle = document.querySelector("#logo-title");
-    logo.style.opacity = 0;
-    logoTitle.style.opacity = 0;
 
     let tl = anime.timeline();
     // sidebar anim
@@ -72,11 +70,7 @@ class Home extends Component {
           <img src={bgHome} alt="bg-home" className="bg-home" />
         </div> */}
 
-        <HexagonHoverEffect3
-          /* initGame={this._initGame}
-          isGameOn={this.state.isGameOn}
-          pageIsLoad={this.state.pageIsLoad} */
-        />
+        <HexagonHoverEffect3 />
 
         <div
           className={"content" + (this.state.isGameOn ? " hide-for-game" : "")}
@@ -88,10 +82,15 @@ class Home extends Component {
               className={"logo"}
               src={webnrollsSmall}
               alt="webnrollsBig"
+              style={{ opacity: 0, transform: "translateX(-60px)" }}
             />
           </picture>
 
-          <h1 id="logo-title" className="h1">
+          <h1
+            id="logo-title"
+            className="h1"
+            style={{ opacity: 0, transform: "translateX(-60px)" }}
+          >
             Bonjour,
             <br className="is-mobile" /> je suis <span>Adrien Vidal</span>.
             <br />

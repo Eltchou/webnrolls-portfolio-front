@@ -48,12 +48,10 @@ export class HexagonBg extends Component {
       let hexagons = [];
       for (let i = 0; i < this.state.hexagonsCount; i++) {
         hexagons.push(
-          <div
-            className="hexagon1"
-            key={i}
-          >
-            <div className="inner"></div>
-            <div className="overlay"></div>
+          <div className="hexagon1" key={i}>
+            <div className="inner">
+              <div className="inner-bg"></div>
+            </div>
           </div>
         );
       }
@@ -76,7 +74,7 @@ export class HexagonBg extends Component {
   }
 
   _initHex(firstTime, randomIndex) {
-    const hexagons = document.querySelectorAll(".hexagon1")
+    const hexagons = document.querySelectorAll(".hexagon1");
     hexagons.forEach((hex) => {
       hex.style.opacity = 0;
     });
@@ -106,7 +104,6 @@ export class HexagonBg extends Component {
     const that = this;
 
     hexagons.forEach((hex, index) => {
-
       firstTime && hex.addEventListener("click", removeAnim);
 
       function removeAnim() {
@@ -114,19 +111,20 @@ export class HexagonBg extends Component {
 
         hexagons.forEach((hex, index) => {
           hex.style.pointerEvents = "none";
-          // hex.style.transform = 'scale(1.2)';
-          // hex.querySelector(".overlay").style.transform = 'scale(1)';
         });
 
         const hexInner = hex.querySelector(".inner");
 
-        // fix .inner for firefox
-        anime({
-          targets: hexInner,
-          background: "#0f0",
-          duration: 0,
-          delay: 0,
-        });
+        if (navigator.userAgent.toLowerCase().indexOf("firefox") !== -1) {
+          console.log("firefox");
+          // fix .inner for firefox
+          anime({
+            targets: hexInner,
+            background: "#4CAF50",
+            duration: 0,
+            delay: 0,
+          });
+        }
 
         let tl = anime.timeline({
           duration: 750,
@@ -153,15 +151,26 @@ export class HexagonBg extends Component {
             },
             { scale: 1, duration: 500, delay: 1000, easing: "easeOutElastic" },
           ],
-          delay: 50
+          // delay: 50
         });
 
         tl.add(
           {
             targets: ".hexagon1 .inner",
             keyframes: [
-              { background: "#0f0", duration: 50, easing: "linear" },
-              // { background: "#111", duration: 50, easing: "linear" },
+              { background: "#4CAF50", duration: 50, easing: "linear" },
+              {
+                background: "#fff",
+                duration: 50,
+                delay: 500,
+                easing: "linear",
+              },
+              {
+                background: "#111",
+                duration: 50,
+                delay: 500,
+                easing: "linear",
+              },
             ],
             delay: anime.stagger(200, {
               grid: [that.state.hexagonsCount, that.state.rowsCount],
