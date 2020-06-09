@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import anime from "animejs/lib/anime.es.js";
 // style
 import "../assets/styles/index.scss";
 
@@ -49,12 +50,37 @@ class App extends Component {
     this.setState({ device: device });
   }
 
-  _animationPageLoad(){
+  _animationPageLoad() {
     console.log("_animationPageLoad");
 
+    const sidebar = document.querySelector(".sidebar");
+    sidebar.style.transform = "translateX(-60px)";
+    sidebar.style.opacity = 0;    
+    anime({
+      targets: sidebar,
+      keyframes: [{ translateX: -60, opacity: 0 }, { translateX: 0, opacity: 1 }],
+      duration: 500,
+      easing: "linear",
+      delay: 1000,
+      complete: function(anim) {
+        sidebar.removeAttribute("style");
+      }
+    });
     
+    const main = document.querySelector(".main");
+    main.style.transform = "translateX(60px)";
+    main.style.opacity = 0;
+    anime({
+      targets: main,
+      keyframes: [{ translateX: 60, opacity: 0 }, { translateX: 0, opacity: 1 }],
+      duration: 500,
+      easing: "linear",
+      delay: 1000,
+      complete: function(anim) {
+        main.removeAttribute("style");
+      }
+    });
   }
-
 
   render() {
     const { location } = this.props;
@@ -63,7 +89,11 @@ class App extends Component {
       <div className="container">
         <Sidebar />
         <TransitionGroup className="main">
-          <CSSTransition key={location.key} timeout={500} classNames="page-animation">
+          <CSSTransition
+            key={location.key}
+            timeout={500}
+            classNames="page-animation"
+          >
             <Switch location={location}>
               <Route exact path="/" component={Home} />
               <Route exact path="/about" component={About} />
