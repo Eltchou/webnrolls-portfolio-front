@@ -96,7 +96,7 @@ export class HexagonBg extends Component {
           this._removeHex(firstTime);
         },
       },
-      2000
+      1500
     );
   }
 
@@ -106,12 +106,10 @@ export class HexagonBg extends Component {
     const that = this;
 
     hexagons.forEach((hex, index) => {
-      // hex.removeEventListener("click", removeAnim);
 
       firstTime && hex.addEventListener("click", removeAnim);
 
       function removeAnim() {
-        console.log("remove");
         hex.style.zIndex = 100;
 
         hexagons.forEach((hex, index) => {
@@ -119,12 +117,11 @@ export class HexagonBg extends Component {
         });
 
         const hexInner = hex.querySelector(".inner");
-        // hexInner.style.backgroundColor = "#111";
 
         // fix .inner for firefox
         anime({
           targets: hexInner,
-          background: "#0f0",
+          background: "#4CAF50",
           duration: 0,
           delay: 0,
         });
@@ -143,7 +140,7 @@ export class HexagonBg extends Component {
             },
             {
               scale: 1.3,
-              duration: 300,
+              duration: 600,
               easing: "cubicBezier(0.455, 0.03, 0.515, 0.955)",
             },
             {
@@ -162,7 +159,7 @@ export class HexagonBg extends Component {
             targets: ".hexagon1 .inner",
             keyframes: [
               // { background: "#0f0", duration: 0, easing: "linear" },
-              { background: "#0f0", duration: 50, easing: "linear" },
+              { background: "#4CAF50", duration: 50, easing: "linear" },
             ],
             delay: anime.stagger(200, {
               grid: [that.state.hexagonsCount, that.state.rowsCount],
