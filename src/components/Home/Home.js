@@ -1,16 +1,10 @@
 import React, { Component } from "react";
-import { CSSTransition } from "react-transition-group";
+import anime from "animejs/lib/anime.es.js";
 
 // img
 import bgHome from "../../assets/img/projet.jpg";
 import webnrollsBig from "../../assets/img/webnrolls-big.png";
 import webnrollsSmall from "../../assets/img/webnrolls-small.png";
-
-// utils
-import {
-  addClassNameAnimationAndRemoveItById,
-  addClassNameTransitionById,
-} from "../../utils/animations";
 
 // Component
 import HexagonHoverEffect2 from "./HexagonHoverEffect/HexagonHoverEffect2";
@@ -26,45 +20,43 @@ class Home extends Component {
   }
 
   componentDidMount() {
-    // this._animationPageLoad();
+    this._animationPageLoad();
   }
 
   _animationPageLoad() {
+    const logo = document.querySelector(".logo");
+    const logoTitle = document.querySelector("#logo-title");
+    logo.style.opacity = 0;
+    logoTitle.style.opacity = 0;
 
-    // bg
-    addClassNameAnimationAndRemoveItById(
-      "bg-home-wrapper",
-      "un-zoom-enter-active",
-      {
-        animationDelay: `500ms`,
-        animationDuration: `2000ms`,
-      }
-    );
+    let tl = anime.timeline();
+    // sidebar anim
+    tl.add({
+      targets: logo,
+      keyframes: [
+        { translateX: -60, opacity: 0 },
+        { translateX: 0, opacity: 1 },
+      ],
+      duration: 500,
+      easing: "linear",
+      delay: 2000,
+      complete: function (anim) {
+        logo.removeAttribute("style");
+      },
+    });
 
-    // logo
-    addClassNameAnimationAndRemoveItById(
-      "logo",
-      "slide-in-elliptic-top-fwd-appear-active",
-      {
-        animationDelay: `500ms`,
-        animationDuration: `1000ms`,
-      }
-    );
-
-    // logo-title
-    addClassNameAnimationAndRemoveItById(
-      "logo-title",
-      "slide-in-elliptic-top-fwd-appear-active",
-      {
-        animationDelay: `1000ms`,
-        animationDuration: `1000ms`,
-      }/* ,
-      () => {
-        this.setState({
-          pageIsLoad: true,
-        });
-      } */
-    );
+    tl.add({
+      targets: logoTitle,
+      keyframes: [
+        { translateX: -60, opacity: 0 },
+        { translateX: 0, opacity: 1 },
+      ],
+      duration: 500,
+      easing: "linear",
+      complete: function (anim) {
+        logoTitle.removeAttribute("style");
+      },
+    });
   }
 
   _initGame = (isGameOn) => {
@@ -76,17 +68,17 @@ class Home extends Component {
   render() {
     return (
       <section id="home">
-        <div id="bg-home-wrapper" className="bg-home-wrapper">
+        {/* <div className="bg-home-wrapper">
           <img src={bgHome} alt="bg-home" className="bg-home" />
-        </div>
+        </div> */}
 
-        {/* <HexagonHoverEffect2
+        <HexagonHoverEffect2
           initGame={this._initGame}
           isGameOn={this.state.isGameOn}
           pageIsLoad={this.state.pageIsLoad}
-        /> */}
+        />
 
-        {/* <div
+        <div
           className={"content" + (this.state.isGameOn ? " hide-for-game" : "")}
         >
           <picture>
@@ -105,8 +97,7 @@ class Home extends Component {
             <br />
             Développeur front-end
           </h1>
-        </div> */}
-
+        </div>
       </section>
     );
   }
