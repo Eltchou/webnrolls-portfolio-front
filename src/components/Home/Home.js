@@ -7,7 +7,7 @@ import webnrollsBig from "../../assets/img/webnrolls-big.png";
 import webnrollsSmall from "../../assets/img/webnrolls-small.png";
 
 // Component
-import HexagonHoverEffect2 from "./HexagonHoverEffect/HexagonHoverEffect2";
+import HexagonHoverEffect3 from "./HexagonHoverEffect/HexagonHoverEffect3";
 
 class Home extends Component {
   constructor(props) {
@@ -68,14 +68,14 @@ class Home extends Component {
   render() {
     return (
       <section id="home">
-        {/* <div className="bg-home-wrapper">
+        <div className="bg-home-wrapper">
           <img src={bgHome} alt="bg-home" className="bg-home" />
-        </div> */}
+        </div>
 
-        <HexagonHoverEffect2
-          initGame={this._initGame}
+        <HexagonHoverEffect3
+          /* initGame={this._initGame}
           isGameOn={this.state.isGameOn}
-          pageIsLoad={this.state.pageIsLoad}
+          pageIsLoad={this.state.pageIsLoad} */
         />
 
         <div
